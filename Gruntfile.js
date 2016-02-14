@@ -13,6 +13,7 @@ module.exports = function(grunt) {
                 files: [
                     './app/assets/**/*.{png,jpg,jpeg,mp3}',
                     './app/scripts/**/*.js',
+                    './app/scripts/**/*.jsx',
                     './app/styles/**/*.css',
                     './app/pages/**/*.html',
                     './app/templates/**/*.html',
@@ -52,6 +53,10 @@ module.exports = function(grunt) {
                     cwd: './app/scripts'
                 }, {
                     expand: true,
+                    src: [ './**/*.jsx' ],
+                    dest: './dist/scripts',
+                    cwd: './app/scripts'
+                }, {                    expand: true,
                     src: [ './**/*.html' ],
                     dest: './dist/templates',
                     cwd: './app/templates'

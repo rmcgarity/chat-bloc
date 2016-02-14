@@ -1,22 +1,31 @@
 {
-  "name": "bloc-frontend-project-starter",
-  "version": "0.0.2",
-  "description": "Starter project for the Bloc Frontend Web Development",
+  "name": "chat-bloc",
+  "version": "0.0.1",
+  "description": "Ralph's demo chat room using React/Flux",
   "repository": {
     "type": "git",
     "url": "https://github.com/bloc/bloc-frontend-project-starter"
   },
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
+
   "author": "Bloc Inc",
   "license": "ISC",
   "dependencies": {
     "hapi": "^7.5.0",
-    "path": "^0.4.9"
+    "path": "^0.4.9",
+    "classnames": "^2.2.3",
+    "flux": "^2.1.1",
+    "keymirror": "~0.1.1",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.6"
   },
   "devDependencies": {
+    "browserify": "^13.0.0",
+    "envify": "^3.4.0",
+    "jest-cli": "^0.8.1",
+    "reactify": "^1.1.1",
+    "uglify-js": "~2.6.1",
+    "watchify": "^3.7.0",
     "connect-modrewrite": "^0.7.9",
     "es5-shim": "^4.0.1",
     "grunt": "^0.4.5",
@@ -25,5 +34,17 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-hapi": "^0.8.1"
+  },
+  "scripts": {
+    "startold": "node server.js",
+    "start": "watchify -o app/scripts/bundle.js -v -d app/scripts/app.jsx",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > app/scripts/bundle.min.js"
+  },
+  "author": "Ralph McGarity",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
   }
 }
