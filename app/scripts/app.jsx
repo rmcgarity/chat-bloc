@@ -1,14 +1,9 @@
 var BlocChatApp = require('./components/BlocChatApp.react.jsx');
-// var ChatExampleData = require('./ChatExampleData');
-// var ChatWebAPIUtils = require('./utils/ChatWebAPIUtils');
+var ReactDOM = require('react-dom');
 var React = require('react');
 window.React = React; // export for http://fb.me/react-devtools
 
-// ChatExampleData.init(); // load example data into localstorage
-
-// ChatWebAPIUtils.getAllMessages();
-
-React.render(
+ReactDOM.render(
     <BlocChatApp />,
     document.getElementById('react')
 );

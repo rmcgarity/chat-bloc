@@ -1,29 +1,47 @@
 var React = require('react');
 var RoomRow = require('./RoomRow.react.jsx');
 var RoomStore = require('../stores/RoomStore.js');
+
 var Rooms = React.createClass({
-  getInitialState: function() {
+  getRoomStoreState: function() {
     return {
-      rooms: RoomStore.bootstrapTemp()
-    };
+      rooms: RoomStore.getAllRooms()
+    }
+  },
+  getInitialState: function() {
+    return this.getRoomStoreState();
+  },
+  componentDidMount: function() {
+    RoomStore.addChangeListener(this.onRoomStoreChange);
+  },
+
+  componentWillUnmount: function() {
+    RoomStore.removeChangeListener(this.onRoomStoreChange);
   },
   render: function() {
-    var roomRows = this.state.rooms.map(function(room) {
+    if (this.state.rooms) {
+      var roomRows = this.state.rooms.map(function(room) {
+        return (
+          <RoomRow
+            key={room}
+            room={room}
+          />
+        );
+      });
       return (
-        <RoomRow
-          key={room}
-          room={room}
-        />
+        <div className="rooms">
+          <h1>Bloc Chat</h1>
+          <table className="room-heading">
+            <tbody>
+              {roomRows}
+            </tbody>
+          </table>
+        </div>
       );
-    });
-    return (
-      <div className="rooms">
-        <h1>Bloc Chat</h1>
-        <table className="room-heading">
-          {roomRows}
-        </table>
-      </div>
-    );
+    }
+  },
+  onRoomStoreChange() {
+    this.setState(this.getRoomStoreState());
   }
 });
 
