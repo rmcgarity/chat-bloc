@@ -1,6 +1,8 @@
 var React = require('react');
 var RoomRow = require('./RoomRow.react.jsx');
 var RoomStore = require('../stores/RoomStore.js');
+// var Button = require('../../../node_modules/elemental/lib/components/Button.js');
+var Button = require('react-bootstrap/lib/Button');
 
 var Rooms = React.createClass({
   getRoomStoreState: function() {
@@ -30,9 +32,21 @@ var Rooms = React.createClass({
       });
       return (
         <div className="rooms">
-          <h1>Bloc Chat</h1>
           <table className="room-heading">
+            <colgroup>
+              <col width="170px"></col>
+              <col></col>
+            </colgroup>
             <tbody>
+              <tr>
+                <td><h1>Bloc Chat</h1></td>
+                <td>
+                  <Button
+                    bsStyle="primary"
+                    bsSize="small"
+                    onClick={function() {console.log("Click")}}
+                  >New Room</Button></td>
+              </tr>
               {roomRows}
             </tbody>
           </table>

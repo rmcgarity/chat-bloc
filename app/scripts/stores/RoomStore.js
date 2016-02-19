@@ -7,32 +7,31 @@ var blocChatDb = new Firebase("https://bloc-chat-rmcgarity.firebaseio.com/");
 // var ActionTypes = BlocChatConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
 var bootStrapData = {
-  1: {
-    roomType: "room",
-    room: "1"
-  },
-  2: { roomType: "room",
-    room: "2"
-  },
-  3: { roomType: "room",
-    room: "3"
-  }
+  rooms: [
+    { roomName: "Red",
+      roomId: "1"
+    },
+    { roomName: "Blue",
+      roomId: "2"
+    },
+    { roomName: "room",
+      roomId: "3"
+    }
+  ]
 };
 
 var rooms = [];
 
 var blocChatDbData;
 
-blocChatDb.on("value", function(snapshot) {
+blocChatDb.child("rooms").on("value", function(snapshot) {
   blocChatDbData = snapshot.val();
   if (!blocChatDbData) {
     blocChatDb.set(bootStrapData);
   } else {
     blocChatDbData.forEach(function(roomRec) {
-      if (roomRec.roomType == "room") {
-        if (rooms.indexOf(roomRec.room) == -1) {
-          rooms.push(roomRec.room);
-        }
+      if (rooms.indexOf(roomRec.roomId) == -1) {
+        rooms.push(roomRec.roomId);
       }
     });
     RoomStore.emitChange();
@@ -54,3 +53,4 @@ var RoomStore = assign({}, EventEmitter.prototype, {
   }
 });
 module.exports = RoomStore;
+

@@ -4,6 +4,7 @@ var RoomRow = React.createClass({
     return (
       <tr className="room-row">
         <td>Room {this.props.room}</td>
+        <td></td>
       </tr>
     );
   }
