@@ -3,21 +3,24 @@ var Rooms = require('./Rooms.react.jsx');
 
 var BlocChatApp = React.createClass({
   render: function() {
-    var leftColStyle = {backgroundColor: 'lightgrey'};
+    var leftColStyle = {
+      float: "left",
+      width: "40%",
+      height: "100%",
+      padding: "20px 20px",
+      backgroundColor: 'lightgrey'
+    };
+    var rightColStyle = {
+      float: "left"
+    };
     return (
       <div className="chatapp">
-        <table>
-          <colgroup>
-            <col style={leftColStyle}></col>
-            <col></col>
-          </colgroup>
-          <tbody>
-            <tr>
-              <td><Rooms /></td>
-              <td>Hello</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style={leftColStyle}>
+          <Rooms />
+        </div>
+        <div style={rightColStyle}>
+          Hello
+        </div>
       </div>
     );
   }
