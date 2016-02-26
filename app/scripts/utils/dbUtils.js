@@ -8,14 +8,11 @@ module.exports = {
   updateRoomsFromDb: function(rooms, onChangeFunction) {
     var bootStrapData = {
       rooms: [
-        { roomName: "Red",
-          roomId: "1"
+        { roomName: "Red"
         },
-        { roomName: "Blue",
-          roomId: "2"
+        { roomName: "Blue"
         },
-        { roomName: "room",
-          roomId: "3"
+        { roomName: "Green"
         }
       ]
     };
@@ -28,7 +25,7 @@ module.exports = {
       } else {
         rooms.length = 0;
         blocChatDbData.forEach(function(roomRec) {
-          rooms.push(roomRec.roomId);
+          rooms.push(roomRec.roomName);
         });
         onChangeFunction();
       }

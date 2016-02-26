@@ -2,9 +2,9 @@ var React = require('react');
 var RoomRow = React.createClass({
   render: function() {
     return (
-      <tr className="room-row">
-        <td>Room {this.props.room}</td>
-        <td></td>
+      <tr key={this.props.key} className="room-row">
+        <td key={this.props.key} >{this.props.roomName} Room</td>
+        <td key={this.props.key + "_blankColumnSpacer"}></td>
       </tr>
     );
   }

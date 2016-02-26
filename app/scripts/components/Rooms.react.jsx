@@ -25,7 +25,7 @@ var Rooms = React.createClass({
         return (
           <RoomRow
             key={room}
-            room={room}
+            roomName={room}
           />
         );
       });
@@ -40,7 +40,7 @@ var Rooms = React.createClass({
               <tr>
                 <td><h1>Bloc Chat</h1></td>
                 <td>
-                  <AddRoom></AddRoom>
+                  <AddRoom rooms={this.state.rooms}></AddRoom>
                 </td>
               </tr>
               {roomRows}
