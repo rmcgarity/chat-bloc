@@ -1,3 +1,3 @@
-var Dispatcher = require('flux').Dispatcher;
+var BlocChatDispatcher = require('flux').Dispatcher;
 
-module.exports = new Dispatcher();
+module.exports = new BlocChatDispatcher();

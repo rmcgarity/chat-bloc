@@ -4,6 +4,7 @@ var Modal         = require('react-bootstrap/lib/Modal');
 var Input         = require('react-bootstrap/lib/Input');
 var ButtonInput   = require('react-bootstrap/lib/ButtonInput');
 var ButtonToolbar = require('react-bootstrap/lib/ButtonToolbar');
+var RoomsActionCreators = require('../actions/RoomsActionCreators');
 
 var roomIsUnique = function(newRoomName, roomArray) {
   var retVal = true;
@@ -35,6 +36,7 @@ var AddRoom = React.createClass({
   addNewRoom: function(event) {
     event.preventDefault();
     console.log("add new room");
+    RoomsActionCreators.addRoom(this.state.newRoomName);
     this.closeAddRoom();
     return false;
   },

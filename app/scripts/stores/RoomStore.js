@@ -1,10 +1,10 @@
-var BlocChatAppDispatcher = require('../dispatcher/BlocChatDispatcher');
-// var BlocChatConstants = require('../constants/BlocChatConstants');
+var BlocChatDispatcher = require('../dispatcher/BlocChatDispatcher');
+var BlocChatConstants = require('../constants/BlocChatConstants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 var dbUtils = require('../utils/dbUtils.js')
-// var ActionTypes = BlocChatConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
+var ActionTypes = BlocChatConstants.ActionTypes;
 
 var rooms = [];
 
@@ -23,6 +23,15 @@ var RoomStore = assign({}, EventEmitter.prototype, {
   }
 });
 
+RoomStore.dispatchToken = BlocChatDispatcher.register(function(action) {
+  switch(action.type) {
+    case ActionTypes.ADD_ROOM:
+      dbUtils.addRoomToDb(action.room);
+      RoomStore.emitChange();
+      break;
+    default: // do nothing
+  }
+});
 dbUtils.updateRoomsFromDb(rooms, RoomStore.emitChange);
 
 module.exports = RoomStore;
