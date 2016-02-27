@@ -29,6 +29,10 @@ RoomStore.dispatchToken = BlocChatDispatcher.register(function(action) {
       dbUtils.addRoomToDb(action.room);
       RoomStore.emitChange();
       break;
+    case ActionTypes.DELETE_ROOM:
+      dbUtils.deleteRoomFromDb(action.room);
+      RoomStore.emitChange();
+      break;
     default: // do nothing
   }
 });

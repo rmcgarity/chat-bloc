@@ -2,6 +2,7 @@
 
 var Firebase = require("firebase");
 var blocChatDb = new Firebase("https://bloc-chat-rmcgarity.firebaseio.com/");
+var blocChatDbData;
 
 module.exports = {
 
@@ -16,7 +17,6 @@ module.exports = {
         }
       ]
     };
-    var blocChatDbData;
     
     blocChatDb.child("rooms").on("value", function(snapshot) {
       blocChatDbData = snapshot.val();
@@ -31,9 +31,6 @@ module.exports = {
           if (blocChatDbData.hasOwnProperty(key)) {
             var roomRec = blocChatDbData[key];
             rooms.push(roomRec.roomName);
-            //for (var roomProp in room) {
-            //  console.log(roomProp + " = '" + room[roomProp]);
-            //}
           }
         }
         onChangeFunction();
@@ -42,5 +39,15 @@ module.exports = {
   },
   addRoomToDb: function(room) {
     blocChatDb.child("rooms").push({roomName: room});
+  },
+  deleteRoomFromDb: function(room) {
+    for (var key in blocChatDbData.child("rooms")) {
+      if (blocChatDbData.hasOwnProperty(key)) {
+        if (room == blocChatDbData[key]) {
+          blocChatDb.child("rooms").remove(key);
+          return;
+        }
+      }
+    }
   }
 };

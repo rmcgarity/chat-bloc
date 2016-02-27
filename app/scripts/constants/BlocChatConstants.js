@@ -3,6 +3,8 @@ var keyMirror = require('keymirror');
 module.exports = {
 
   ActionTypes: keyMirror({
-    ADD_ROOM: null
+    ADD_ROOM: null,
+    DELETE_ROOM: null,
+    RENAME_ROOM: null
   })
 };
