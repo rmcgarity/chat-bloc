@@ -2,6 +2,7 @@ var React = require('react');
 var Rooms = require('./Rooms.react.jsx');
 
 var BlocChatApp = React.createClass({
+  render: function() {
     return (
       <div className="chatapp">
         <div className="leftColStyle">
