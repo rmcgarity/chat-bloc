@@ -1,12 +1,30 @@
-
 .leftColStyle {
-  float: left; 
-  width: 40%;
-  height: 100%;
-  padding: 20px 20px;
   background-color: lightgrey;
+  padding:20px 20px;
 }
 
 .rightColStyle {
-  float: left;
+}
+
+.chatapp {
+  display:flex;
+  min-height: 100vh;
+}
+
+/* Flexbox within the chatapp flexbox: */
+.leftsection {
+  display:flex;
+}
+
+.rooms {
+  margin-right:10px;
+}
+
+.addroom {
+  padding-top:5px;
+}
+
+.rooms .blocchat {
+  font-weight:bold;
+  font-size:200%;
 }

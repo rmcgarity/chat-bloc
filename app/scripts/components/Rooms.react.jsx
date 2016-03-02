@@ -30,22 +30,14 @@ var Rooms = React.createClass({
         );
       });
       return (
-        <div className="rooms">
-          <table className="room-heading">
-            <colgroup>
-              <col width="170px"></col>
-              <col></col>
-            </colgroup>
-            <tbody>
-              <tr>
-                <td><h1>Bloc Chat</h1></td>
-                <td>
-                  <AddRoom rooms={this.state.rooms}></AddRoom>
-                </td>
-              </tr>
-              {roomRows}
-            </tbody>
-          </table>
+        <div className="leftsection">
+          <div className="rooms">
+            <div className="blocchat">Bloc Chat</div><br></br>
+            {roomRows}
+          </div>
+          <div className="addroom">
+            <AddRoom rooms={this.state.rooms}></AddRoom>
+          </div>
         </div>
       );
     }
