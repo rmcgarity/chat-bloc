@@ -1,5 +1,6 @@
 var React = require('react');
 var Rooms = require('./Rooms.react.jsx');
+var Messages = require('./Messages.react.jsx');
 
 var BlocChatApp = React.createClass({
   render: function() {
@@ -9,7 +10,7 @@ var BlocChatApp = React.createClass({
           <Rooms />
         </div>
         <div className="rightColStyle">
-          Hello
+          <Messages />
         </div>
       </div>
     );
