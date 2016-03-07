@@ -1,14 +1,17 @@
-.leftColStyle {
-  background-color: lightgrey;
-  padding:20px 20px;
-}
-
-.rightColStyle {
-}
-
 .chatapp {
   display:flex;
   min-height: 100vh;
+}
+
+.leftColStyle {
+  background-color: lightgrey;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.rightColStyle {
+  display:flex;
+  flex:500;
 }
 
 /* Flexbox within the chatapp flexbox: */
@@ -29,7 +32,47 @@
   font-size:200%;
 }
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .messages .message-heading {
   font-weight:bold;
   font-size:200%;
+  padding-left: 5px;
+}
+
+.messages .message-body {
+}
+.odd-message-row {
+  background-color: azure;
+  
+}
+
+.even-message-row {
+  background-color: beige;
+}
+
+.not-last-message-row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.last-message-row {
+  padding-top: 5px;
+}
+
+.message-row {
+  display: flex;
+  padding-left:10px;
+  padding-right:10px;
+}
+.message-username-content {
+  display: flex;
+  flex-direction: column;
+}
+.message-sent-at {
+  text-align: right;
+  flex:1;
 }

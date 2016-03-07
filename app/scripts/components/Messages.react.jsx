@@ -26,13 +26,16 @@ var Messages = React.createClass({
     messageTotal = this.state.messages.length;
     if (messageTotal > 0) {
       var count = 0;
+      var isOddMessageRow = false;
       var messageRows = this.state.messages.map(function(message) {
+        isOddMessageRow = !isOddMessageRow;
         return (
           <MessageRow
             key= {message.key}
             message ={message}
             count= {count++}
             messageTotal= {messageTotal}
+            isOddMessageRow = {isOddMessageRow}
           />
         );
       });
@@ -41,7 +44,7 @@ var Messages = React.createClass({
           <div className="message-heading">
             {this.state.messages[0].roomName} Room
           </div>
-          <div className="Messagesbody">
+          <div className="message-body">
             {messageRows}
           </div>
         </div>
