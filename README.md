@@ -1,6 +1,8 @@
 # Chat-Bloc
 A [React](https://facebook.github.io/react)/[Flux](http://facebook.github.io/flux) based chat app, integrated with [Firebase](https://www.firebase.com), that makes use of [CSS3 flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes). Multiple users can create chat rooms, send chats, see notifications, etc. with each other in real-time.
 
+####Example Screenshot:
+![Example Screen Shot](https://github.com/rmcgarity/chat-bloc/blob/lesson2/app/assets/images/Chat-Bloc-Snapshot.JPG "Example Screen Shot")
 ####Current status: 
 * Displays clickable rooms
 * Implements New Room function
